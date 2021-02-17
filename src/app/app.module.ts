@@ -8,6 +8,8 @@ import { ArticleComponent } from './components/article/article.component';
 import { FormComponent } from './components/form/form.component';
 import { ArticlePreviewComponent } from './components/article-preview/article-preview.component';
 import { CrearComponent } from './components/crear/crear.component';
+import { NavComponent } from './components/nav/nav.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CrearComponent } from './components/crear/crear.component';
     ArticleComponent,
     FormComponent,
     ArticlePreviewComponent,
-    CrearComponent
+    CrearComponent,
+    NavComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
