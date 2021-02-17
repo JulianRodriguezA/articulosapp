@@ -1,0 +1,19 @@
+@import "../../../assets/scss/colors";
+.article {
+  width: 98%;
+  border-bottom: solid 1px $orange;
+  margin-bottom: 15px;
+  &-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  &-title {
+    color: $orange;
+    cursor: initial;
+  }
+  &-autor {
+    margin-left: 3px;
+    cursor: initial;
+  }
+}
