@@ -1,5 +1,4 @@
 <h1>
-    Últimos
+    {{title}}
 </h1>
-<app-article-preview></app-article-preview>
-<app-article-preview></app-article-preview>
+<app-article-preview *ngFor="let article of articles" [article]=article></app-article-preview>

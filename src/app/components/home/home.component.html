@@ -1,4 +1,5 @@
 <div class="container">
-    <app-articles></app-articles>
+    <app-articles *ngIf="articulos" [title]=title  [articles]=articulos></app-articles>
+    <h2  class="error" *ngIf="articulos.length==0">No se han encontrado resultados</h2>
     <app-crear></app-crear>
 </div>

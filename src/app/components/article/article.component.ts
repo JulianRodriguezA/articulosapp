@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ArticleModel } from 'src/app/models/article.model';
+import { ArticleService } from 'src/app/service/article.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-article',
@@ -6,10 +9,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-
-  constructor() { }
+  articulo:ArticleModel;
+  constructor(private route:ActivatedRoute, 
+    private articleservice:ArticleService,
+    private router: Router) { 
+      route.params.subscribe(
+        resp=>{
+          this.articleservice.obtenerArticulo(resp.id)
+          .subscribe(
+            (res:any)=>{
+              console.log(res)
+              this.articulo=res;
+              this.articulo.id=resp.id;
+            }
+            )}
+      )
+    }
 
   ngOnInit(): void {
   }
-
+  borrar(){
+    this.articleservice.borrarArticulo(this.articulo.id).subscribe(
+      res=>{
+        this.router.navigate(['home']);
+      }
+    );
+  }
+  editar(){
+    this.router.navigate(['editar',this.articulo.id]);
+  }
 }

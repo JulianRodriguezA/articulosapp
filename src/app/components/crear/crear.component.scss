@@ -20,5 +20,14 @@
       color: $green;
       border: 1px solid $green;
     }
+    a {
+      color: white;
+      text-decoration: none;
+      width: 100%;
+      display: block;
+      &:hover {
+        color: $green;
+      }
+    }
   }
 }

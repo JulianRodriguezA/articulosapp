@@ -1,17 +1,17 @@
-<article class="article">
+<article class="article" (click)="verArticulo(article)">
     <div class="article-header">
         <h3 class="article-title">
-            Titulo
+            {{article.titulo}}
         </h3> 
-        <p class="article-autor">- Autor</p>
+        <p class="article-autor">- {{article.autor}}</p>
     </div>
     <div class="article-body">
         <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus, minima consectetur quod velit similique perferendis vel, officia facilis mollitia quae sit, quos accusamus ratione aut! Est a obcaecati ipsa impedit!
+            {{article.contenido}}
         </p>
     </div>
     <footer class="article-footer">
-        <small>15 minutos</small>
+        <small>{{article.fecha}}</small>
     </footer>
 
 </article>

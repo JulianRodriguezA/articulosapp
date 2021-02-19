@@ -1,7 +1,7 @@
 export interface ArticleModel{
     titulo:string,
     contenido:string,
-    fecha:Date,
+    fecha:string,
     autor:string,
-    id:string
+    id?:string
 }

@@ -6,10 +6,11 @@ import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
+  {path:'todos',component:HomeComponent},
   {path:'articulo/:id',component:ArticleComponent},
   {path:'crear',component:FormComponent},
   {path:'editar/:id',component:FormComponent},
-  //{path:'home/buscando/:key',component:HomeComponent},
+  {path:'buscar/:key',component:HomeComponent},
   {path:'',component:HomeComponent},
   {path:'**',pathMatch: 'full', redirectTo:'home'}
   
