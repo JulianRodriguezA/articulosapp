@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ArticleModel } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/service/article.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-article',
@@ -12,7 +13,8 @@ export class ArticleComponent implements OnInit {
   articulo:ArticleModel;
   constructor(private route:ActivatedRoute, 
     private articleservice:ArticleService,
-    private router: Router) { 
+    private router: Router,
+    ) { 
       route.params.subscribe(
         resp=>{
           this.articleservice.obtenerArticulo(resp.id)
@@ -31,6 +33,11 @@ export class ArticleComponent implements OnInit {
   borrar(){
     this.articleservice.borrarArticulo(this.articulo.id).subscribe(
       res=>{
+        Swal.fire({
+          icon: 'success',
+          title: 'Borrado',
+          text: 'El articulo se ha borrado',
+        })
         this.router.navigate(['home']);
       }
     );

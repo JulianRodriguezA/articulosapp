@@ -8,6 +8,7 @@
             [ngModel]="articulo.titulo"
             required
             >
+            <small class="form-error" *ngIf="titulo.invalid && titulo.touched">Este campo es obligatorio</small>
         </div>
         <div class="form-group">
             <label for="contenido" class="label">Contenido</label>
@@ -16,6 +17,7 @@
             [ngModel]="articulo.contenido"
             required
             ></textarea>
+            <small class="form-error" *ngIf="contenido.invalid && contenido.touched">Este campo es obligatorio</small>
         </div>
         <div class="form-group">
             <label for="autor" class="label">Autor</label>
@@ -25,8 +27,9 @@
             [ngModel]="articulo.autor"
             required
             >
+            <small class="form-error" *ngIf="autor.invalid && autor.touched">Este campo es obligatorio</small>
         </div>
 
-        <input type="submit" value="Enviar" class="form-btn">
+        <input type="submit" value="Enviar" class="form-btn" [disabled]="f.invalid"> 
     </form>
 </div>

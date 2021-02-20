@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { ArticleModel } from 'src/app/models/article.model';
 import { ArticleService } from 'src/app/service/article.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import { delay } from 'rxjs/operators';
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -40,23 +40,34 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
   }
   guardar(f:NgForm){
-    console.log(f.value);
+    if (f.invalid){
+      
+      return;
+    }
     this.articulo=f.value;
     let date =  new Date;
     let fecha = date.toDateString();
     this.articulo.fecha = fecha;
     this.articulo.id=this.ruta;
-    if (f.invalid){
-      return;
-    }
     if (this.ruta!=null && this.ruta!=undefined ){
       this.articleservice.editarArticulo(this.articulo).subscribe();
+      Swal.fire({
+        icon: 'success',
+        title: 'Actualizado',
+        text: 'El articulo se ha actualizado',
+      })
     }else{
       this.articleservice.crearArticulo(this.articulo).
       subscribe();
+      Swal.fire({
+        icon: 'success',
+        title: 'Creado',
+        text: 'El articulo se ha creado',
+      })
     } 
     f.reset();  
     setTimeout(aux=>{
+     
       this.router.navigate(['home']);
     },500)
     

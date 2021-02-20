@@ -13,7 +13,8 @@ import { ArticlePreviewComponent } from './components/article-preview/article-pr
 import { CrearComponent } from './components/crear/crear.component';
 import { NavComponent } from './components/nav/nav.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
